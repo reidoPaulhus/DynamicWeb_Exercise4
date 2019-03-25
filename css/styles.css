@@ -1,0 +1,27 @@
+body {
+	font-family: arial;
+	color: black;
+}
+
+figure {
+	width: 20%;
+	float: left;
+}
+
+figure img {
+	width: 100%;
+}
+
+figcaption {
+	text-align: right;
+}
+
+.pic { 
+	position: relative;
+	display: inline-block;
+	float: left;
+
+ 	width: 10%;
+ 	height: auto;
+ 	object-fit: cover;
+}
