@@ -1,9 +1,25 @@
 body {
 	font-family: arial;
-	color: black;
+	background: #2d2d2d;
+}
+
+h2 {
+	text-align: center;
+	color: white;
 }
 
 h4 {
+	text-align: center;
+	color: white;
+}
+
+.footer {
+	position: fixed;
+	left: 0;
+	bottom: 0;
+	width: 100%;
+	background: #2a2a2a;
+	color: white;
 	text-align: center;
 }
 
@@ -15,6 +31,18 @@ h4 {
 
 	width: 100%;
 	height: 100%;
+
+	filter: 
+	gray; /* IE5+ */
+    -webkit-filter: grayscale(1); 	/* Webkit Nightlies & Chrome Canary */
+    -webkit-filter: blur(10px); 		/* Webkit Nightlies & Chrome Canary */
+    -webkit-transition: all .5s ease-in-out;  
+}
+
+.pic:hover {
+    filter: none;
+    -webkit-filter: grayscale(0);
+    -webkit-filter: blur(0px);
 }
 
 .wrapper {
