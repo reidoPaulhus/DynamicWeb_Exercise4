@@ -18,44 +18,15 @@ function init()
 		{
 			// IMPORTANT to unpack data
 			picList = JSON.parse(xhr.responseText);
+			console.log(picList);
 
-			// Fill the list of 10 images with random ones from the pool
 			for(var i = 0; i < 10; i++)
 			{
 				var Picture = ChangeImage();
 				PictureSet.push(Picture);
-			}
-
-			for(var i = 0; i < 10; i++)
-			{
-				document.getElementById("author" + i).innerHTML = PictureSet[i].author;
 				document.getElementById("img" + i).innerHTML = PictureSet[i].author_link;
+				document.getElementById("box" + i).innerHTML = PictureSet[i].author;
 			}
-
-			// var picSet = [	"<img class='pic' src='https://picsum.photos/200?image=" + picList[63].id + "'>", 
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[86].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[545].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[330].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[152].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[135].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[255].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[219].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[774].id + "'>",
-			// 				"<img class='pic' src='https://picsum.photos/200?image=" + picList[84].id + "'>"
-			// 			];
-
-			//  var imgString = "";
-			//  var authorString = "";
-			//  for(var i = 0; i < picSet.length; i++)
-			//  {
-			//  	imgString += picSet[i];
-
-			//  	var link = picList[i].author_url;
-			//  	authorString += "<a href=author_url>Author_Link</a>"
-			//  }
-			 
-			//  document.getElementById("gallery").innerHTML = imgString;
-			//  document.getElementById("author").innerHTML = authorString;
 		}
 	}
 }
@@ -67,35 +38,17 @@ function ChangeImage()
 	var Picture = {
 	  	img: '<img class="pic" src="https://picsum.photos/200?image=' + picList[num].id + '">',
 	  	author: picList[num].author,
-	 	author_link:'<a href="' + picList[num].author_url + '">'+
-	 				'<img class="pic" src="https://picsum.photos/200?image=' + picList[num].id + '">'+
+	 	author_link:'<a href="' + picList[num].post_url + '">'+
+	 				'<img class="pic" src="https://picsum.photos/200?image=' + picList[num].id + '">' +
 	 				'</a>'
 	};
 	return Picture;
 }
 
 // When an image is moused over
-function MouseRollover(Image)
+function MouseOut(Image, i)
 {
-	var Picture = ChangeImage();
-
-	Image.author = Picture.author;
-	Image.author_link = Picture.author_link;
-	Image.img = Picture.img;
-}
-
-// When an image is moused over
-function MouseOut(Image)
-{
-	// for(var i = 0; i < PictureSet.length; i++)
-	// {
-	// 	if(PictureSet[i].author == Image.author)
-	// 	{
-	// 		PictureSet[i] = ChangeImage();
-	// 		document.getElementById("author" + i).innerHTML = PictureSet[i].author;
-	// 		document.getElementById("img" + i).innerHTML = PictureSet[i].author_link;
-	// 		console.log("Worked");
-	// 	}
-
-	// }
+	var P = ChangeImage();
+	document.getElementById(Image.id).innerHTML = P.author_link;
+	document.getElementById("box" + i).innerHTML = P.author;
 }
